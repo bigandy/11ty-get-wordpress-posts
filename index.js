@@ -5,7 +5,7 @@ const site = process.argv[2] ? process.argv[2] : "big-andy.co.uk";
 
 console.log(`Getting Posts JSON for ${site}`);
 
-const POSTS_DIR = "posts";
+const DATA_DIR = "posts";
 const API_URL = `https://${site}/wp-json/wp/v2/posts`;
 
 const createDir = async directory => {
@@ -65,9 +65,9 @@ const getContentJSON = async () => {
 
 	// write to json file.
 	// 1. Create Directory if not exists
-	await createDir("POSTS_DIR");
+	await createDir(DATA_DIR);
 
 	// 2. Write to file
-	await writeJSONFile(`${POSTS_DIR}/${site}`, posts);
+	await writeJSONFile(`${DATA_DIR}/${site}`, posts);
 };
 getContentJSON();
